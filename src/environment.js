@@ -1,3 +1,4 @@
+// src/environment.js
 export const environment = {
   production: process.env.NODE_ENV === 'production',
   apiMovieUrl: process.env.REACT_APP_API_MOVIE_URL,

@@ -1,32 +1,111 @@
+/* Aumentare la specificità per i selettori della modale */
+.modal-content-custom {
+  background-color: #141414 !important; /* Sfondo nero */
+  color: white !important; /* Testo bianco */
+  border-radius: 10px;
+  padding: 0;
+}
+
+/* Stili della modale: sfondo nero, testo bianco */
+.modal-content {
+  background-color: #141414 !important; /* Sfondo della modale */
+  color: white !important; /* Colore del testo */
+  border-radius: 10px;
+}
+
+/* Modal header */
+.modal-header {
+  background-color: #141414 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: white !important; /* Colore del testo nella header */
+}
+
+.modal-title {
+  color: white !important; /* Colore del titolo */
+}
+
+.modal-header .close {
+  color: white !important; /* Colore della "X" di chiusura */
+}
+
+/* Modal footer */
+.modal-footer {
+  background-color: #141414 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: white !important; /* Colore del testo nel footer */
+}
+
+/* Specifico per il contenuto del trailer */
+.trailer-frame {
+  border-radius: 8px;
+  width: 100%;
+  
+  height: auto;
+  background-color: black;
+}
+
+/* Testo della descrizione del film */
+.movie-description {
+  color: #ccc !important; /* Colore più chiaro per la descrizione */
+  font-size: 0.85rem;
+  line-height: 1.2;
+
+}
+
+.movie-title {
+  color: white !important;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Similari film */
+.similar-movie-item .movie-description {
+  font-size: 0.85rem;
+  color: #ccc;
+  line-height: 1.2;
+  height: 2.4em; /* Limita a due righe */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Aggiungere padding e margini per il contenuto */
+.movie-details {
+  margin-top: 20px;
+  color: white !important;
+}
+
+.similar-movie-item p.movie-title {
+  color: white !important;
+}
+
+.similar-movie-item p.movie-description {
+  color: #ccc !important;
+}
+
+/* Personalizzare il bottone del footer */
+.modal-footer-info h4 {
+  color: white !important;
+}
+
+/* Caratteristiche della modale */
+.modal-footer-info p {
+  color: #ccc !important; /* Colore più chiaro per il footer */
+}
+
+/* Aggiungi un overlay scuro se necessario */
 .hero-section-modal {
-    position: relative;
-    overflow: hidden;
-  }
-  .modal-content-custom {
-    background-color: #141414 !important;
-    border-radius: 10px;
-    padding: 0;
-  }
-  
-  .modal-header,
-  .modal-footer {
-    border-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  .modal-dialog {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centra verticalmente */
-  }
-  
-  .modal-content {
-    background-color: #141414;
-  }
-  /* Trailer */
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.7); /* Overlay scuro */
+}
+/* Trailer */
 .trailer-container {
+  position: relative;
   width: 100%;
   padding-top: 56.25%; /* Rapporto 16:9 */
-  position: relative;
+  background-color: black; /* Colore di sfondo se necessario */
+  margin-bottom: 1rem; /* Aggiungi un po' di margine per separare */
 }
 
 .trailer-frame {
@@ -36,37 +115,5 @@
   width: 100%;
   height: 100%;
   border-radius: 8px;
-}
-
-/* Movie Details */
-.movie-details {
-  margin-top: 20px;
-}
-
-.movie-title {
-  font-size: 1rem;
-  font-weight: bold;
-  margin: 10px 0 5px;
-  color: #fff;
-}
-
-.movie-info-line span {
-  margin-right: 15px;
-  font-size: 0.9rem;
-}
-
-.movie-description {
-  font-size: 0.85rem;
-  color: #ccc;
-  line-height: 1.2;
-}
-
-.similar-movie-item .movie-description {
-  font-size: 0.85rem;
-  color: #ccc;
-  line-height: 1.2;
-  height: 2.4em; /* Limita a due righe */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  background-color: black; /* Imposta un colore di sfondo per evitare sfarfallii */
 }

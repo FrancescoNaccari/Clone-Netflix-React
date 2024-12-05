@@ -1,32 +1,16 @@
+// src/context/FilterContext.js
 import React, { createContext, useState, useContext } from 'react';
 
-// Definisci i tipi di filtro
-export const FilterType = {
-  ALL: 'all',
-  MOVIES: 'movies',
-  TVSHOWS: 'tvshows',
-  NEW: 'new',
-};
-
-// Crea un contesto
 const FilterContext = createContext();
 
-// Crea un provider per gestire il filtro
 export const FilterProvider = ({ children }) => {
-  const [filter, setFilter] = useState(FilterType.ALL);
-
-  const changeFilter = (newFilter) => {
-    setFilter(newFilter);
-  };
+  const [filter, setFilter] = useState('all'); // Default filter
 
   return (
-    <FilterContext.Provider value={{ filter, changeFilter }}>
+    <FilterContext.Provider value={{ filter, setFilter }}>
       {children}
     </FilterContext.Provider>
   );
 };
 
-// Hook per usare il contesto
-export const useFilter = () => {
-  return useContext(FilterContext);
-};
+export const useFilter = () => useContext(FilterContext);

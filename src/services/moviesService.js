@@ -1,76 +1,111 @@
-// src/services/MoviesService.js
+// src/services/moviesService.js
 import axios from 'axios';
-import { environment } from '../environment'; // Se hai creato environment.js
+import { environment } from '../environment';
 
-const apiUrl = environment.apiMovieUrl;
-const bearerToken = environment.tmdbBearerToken;
-
-// Verifica che le variabili siano definite
-if (!apiUrl) {
-  console.error('REACT_APP_API_MOVIE_URL non è definito nelle variabili di ambiente.');
-}
-
-if (!bearerToken) {
-  console.error('REACT_APP_TMDB_BEARER_TOKEN non è definito nelle variabili di ambiente.');
-}
-
-// Funzione helper per le intestazioni
-const getHeaders = () => ({
-  Authorization: `Bearer ${bearerToken}`,
+const apiClient = axios.create({
+  baseURL: environment.apiMovieUrl,
+  headers: {
+    Authorization: `Bearer ${environment.tmdbBearerToken}`,
+  },
 });
 
-// Funzione helper per la gestione degli errori
-const handleError = (err) => {
-  console.error('Errore API:', err);
-  throw new Error('Errore nella richiesta API. Riprova più tardi.');
+const handleError = (error) => {
+  console.error('API Error:', error);
+  throw new Error('API request failed. Please try again later.');
 };
 
-// Metodi del servizio
+const moviesService = {
+  getPopularMovies: (page = 1) =>
+    apiClient
+      .get(`/movie/popular`, {
+        params: { page, language: 'it-IT' },
+      })
+      .then((res) => res.data)
+      .catch(handleError),
 
-const getGenres = async () => {
-  try {
-    const response = await axios.get(`${apiUrl}/genre/movie/list`, {
-      headers: getHeaders(),
-    });
-    return response.data.genres;
-  } catch (err) {
-    handleError(err);
-  }
+  getPopularTVShows: (page = 1) =>
+    apiClient
+      .get(`/tv/popular`, {
+        params: { page, language: 'it-IT' },
+      })
+      .then((res) => res.data)
+      .catch(handleError),
+
+  getTrendingMovies: () =>
+    apiClient
+      .get(`/trending/all/day`, {
+        params: { language: 'it-IT' },
+      })
+      .then((res) => res.data)
+      .catch(handleError),
+
+  getMovieGenres: () =>
+    apiClient
+      .get(`/genre/movie/list`, {
+        params: { language: 'it-IT' },
+      })
+      .then((res) => res.data)
+      .catch(handleError),
+
+  getTVGenres: () =>
+    apiClient
+      .get(`/genre/tv/list`, {
+        params: { language: 'it-IT' },
+      })
+      .then((res) => res.data)
+      .catch(handleError),
+
+  getMoviesByGenre: (genreId) =>
+    apiClient
+      .get(`/discover/movie`, {
+        params: { with_genres: genreId, language: 'it-IT' },
+      })
+      .then((res) => res.data)
+      .catch(handleError),
+
+  getTVShowsByGenre: (genreId) =>
+    apiClient
+      .get(`/discover/tv`, {
+        params: { with_genres: genreId, language: 'it-IT' },
+      })
+      .then((res) => res.data)
+      .catch(handleError),
+
+  getMovieDetails: (movieId) =>
+    apiClient
+      .get(`/movie/${movieId}`, {
+        params: { language: 'it-IT' },
+      })
+      .then((res) => res.data)
+      .catch(handleError),
+
+  getMovieCredits: (movieId) =>
+    apiClient
+      .get(`/movie/${movieId}/credits`)
+      .then((res) => res.data)
+      .catch(handleError),
+
+  getMovieVideos: (movieId) =>
+    apiClient
+      .get(`/movie/${movieId}/videos`)
+      .then((res) => res.data)
+      .catch(handleError),
+
+  getSimilarMovies: (movieId) =>
+    apiClient
+      .get(`/movie/${movieId}/similar`, {
+        params: { language: 'it-IT' },
+      })
+      .then((res) => res.data)
+      .catch(handleError),
+
+  searchMovies: (query) =>
+    apiClient
+      .get(`/search/movie`, {
+        params: { query, language: 'it-IT' },
+      })
+      .then((res) => res.data)
+      .catch(handleError),
 };
 
-const getPopularMovies = async (page = 1) => {
-  try {
-    const response = await axios.get(`${apiUrl}/movie/popular`, {
-      params: { page, language: 'it-IT' },
-      headers: getHeaders(),
-    });
-    return response.data.results;
-  } catch (err) {
-    handleError(err);
-  }
-};
-
-const getMoviesByGenre = async (genreId, page = 1) => {
-  try {
-    const response = await axios.get(`${apiUrl}/discover/movie`, {
-      params: { with_genres: genreId, language: 'it-IT', page },
-      headers: getHeaders(),
-    });
-    return response.data.results;
-  } catch (err) {
-    handleError(err);
-  }
-};
-
-// Altri metodi come getPopularTVShows, getMovieDetails, ecc.
-
-// Assegnazione dei metodi a un oggetto
-const MoviesService = {
-  getGenres,
-  getPopularMovies,
-  getMoviesByGenre,
-  // ...altri metodi
-};
-
-// Esportazione dell'oggetto come default
-export default MoviesService;
+export default moviesService;

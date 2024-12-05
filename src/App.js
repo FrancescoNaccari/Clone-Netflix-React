@@ -1,6 +1,6 @@
+// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-
 import Login from './components/Login';
 import Home from './components/Home';
 import SearchResults from './components/SearchResults';
@@ -22,17 +22,17 @@ const App = () => {
   return (
     <Router>
       <FilterProvider>
-        {/* Navbar visibile in tutte le pagine */}
+        {/* Navbar visible on all pages */}
         <Navbar />
         <Routes>
-          {/* Rotte principali */}
+          {/* Main Routes */}
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/search" element={<SearchResults />} />
 
-          {/* Rotte con Sidebar senza protezione */}
+          {/* Routes with Sidebar */}
           <Route path="/sidebar/*" element={<Sidebar />}>
-            {/* Rotte figlie sotto Sidebar */}
+            {/* Child Routes under Sidebar */}
             <Route path="account" element={<Account />} />
             <Route path="sicurezza" element={<Sicurezza />} />
             <Route path="abbonamento" element={<Abbonamento />} />
@@ -43,11 +43,11 @@ const App = () => {
             <Route path="gestisciDispositivi" element={<GestisciDispositivi />} />
             <Route path="gestisciPagamenti" element={<GestisciPagamento />} />
             <Route path="impostazioni" element={<Impostazioni />} />
-            {/* Rotta predefinita se non viene specificata una rotta figlia */}
+            {/* Default child route */}
             <Route path="" element={<Navigate to="account" />} />
           </Route>
 
-          {/* Rotta predefinita per rotte non trovate */}
+          {/* Fallback Route */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </FilterProvider>
