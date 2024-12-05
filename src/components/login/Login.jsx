@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import AuthService from '../services/authService'; 
+import AuthService from '../../services/authService'; 
 import './Login.css';
 
 const Login = () => {

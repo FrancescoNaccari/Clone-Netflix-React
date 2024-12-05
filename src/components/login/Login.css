@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh; /* Altezza totale della finestra */
-  background-image: url('../assets/netflix-sfondo.jpg'); /* Percorso corretto dell'immagine */
+  background-image: url('../../assets/netflix-sfondo.jpg'); /* Percorso corretto dell'immagine */
   background-size: cover;
   background-position: center;
 }

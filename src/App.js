@@ -1,8 +1,8 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './components/Login';
-import Home from './components/Home';
+import Login from './components/login/Login';
+import Home from './components/home/Home';
 import SearchResults from './components/SearchResults';
 import Account from './components/account/Account';
 import Sidebar from './components/account/Sidebar';
@@ -15,7 +15,7 @@ import GestisciDispositivi from './components/account/GestisciDispositivi';
 import GestisciPagamento from './components/account/GestisciPagamento';
 import Impostazioni from './components/account/Impostazioni';
 import Sicurezza from './components/account/Sicurezza';
-import Navbar from './components/Navbar';
+import Navbar from './components/navbar/Navbar';
 import { FilterProvider } from './context/FilterContext';
 
 const App = () => {

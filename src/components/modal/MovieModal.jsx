@@ -1,7 +1,7 @@
 // src/components/MovieModal.js
 import React, { useEffect, useState } from 'react';
 import { Modal, Button, Row, Col } from 'react-bootstrap';
-import moviesService from '../services/moviesService';
+import moviesService from '../../services/moviesService';
 import DOMPurify from 'dompurify';
 import './MovieModal.css';
 
