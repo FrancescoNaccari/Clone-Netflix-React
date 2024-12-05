@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { MoviesService } from '../services/moviesService';  // Adjust this import according to your file structure
+import MoviesService from '../services/moviesService';
 import { Modal } from 'react-bootstrap';  // Assuming you're using React Bootstrap for modals
 
 const MovieModal = ({ movie, closeModal }) => {

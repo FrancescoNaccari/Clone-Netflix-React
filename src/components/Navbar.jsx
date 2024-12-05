@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFilter } from '../context/FilterContext';  
 import AuthService from '../services/authService';
-import { MoviesService } from '../services/moviesService'; 
+import MoviesService from '../services/moviesService';
 import './Navbar.css';
 import logo from '../assets/logo_netflix.png';
 import avatar from '../assets/userAvatar.png';
