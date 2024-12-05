@@ -1,0 +1,57 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Altezza totale della finestra */
+  background-image: url('../assets/netflix-sfondo.jpg'); /* Percorso corretto dell'immagine */
+  background-size: cover;
+  background-position: center;
+}
+
+.login-card {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.85); /* Colore di sfondo con trasparenza */
+  color: white;
+  border-radius: 8px;
+}
+
+form .form-control {
+  height: 45px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+form .form-control:focus {
+  border-color: white !important; /* Cambia il bordo a bianco */
+  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.8); /* Effetto glow bianco */
+  background-color: rgba(255, 255, 255, 0.1); /* Sfondo leggermente contrastato */
+  color: white; /* Testo bianco */
+}
+
+.btn-danger {
+  background-color: #e50914;
+  border-color: #e50914;
+}
+
+.btn-danger:hover {
+  background-color: #f6121d;
+  border-color: #f6121d;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.form-check-input:checked {
+  background-color: #e50914;
+  border-color: #e50914;
+}
