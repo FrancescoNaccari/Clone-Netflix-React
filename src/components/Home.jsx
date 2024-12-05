@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { MovieModal } from './MovieModal';
-import { MoviesService } from './services/moviesService';
+import MovieModal from './MovieModal';
+import { MoviesService } from '../services/moviesService';
 import './Home.css';
 
 const Home = () => {
