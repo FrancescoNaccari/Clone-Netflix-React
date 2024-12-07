@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import moviesService from '../../services/moviesService';
 import { useFilter } from '../../context/FilterContext';
-import { Carousel, Modal, Button } from 'react-bootstrap';
+import { Carousel, Button } from 'react-bootstrap';
 import MovieModal from '../modal/MovieModal';
 import './Home.css';
 

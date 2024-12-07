@@ -63,8 +63,16 @@ const MovieModal = ({ show, handleClose, movie, genresMap }) => {
   });
 
   const getGenresString = (genreIds) => {
-    return genreIds.map((id) => genresMap[id]).filter(Boolean).join(' • ');
+    // Controlla se genresMap è definito
+    if (!genresMap) {
+      return '';
+    }
+  
+    return genreIds
+      .map((id) => genresMap[id] || 'Sconosciuto') // se non trova il genere, usa 'Sconosciuto'
+      .join(' • ');
   };
+  
 
   const updateDisplayedSimilarMovies = () => {
     setDisplayedSimilarMovies(showAllSimilarMovies ? similarMovies : similarMovies.slice(0, 9));

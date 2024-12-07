@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/login/Login';
 import Home from './components/home/Home';
-import SearchResults from './components/SearchResults';
+import SearchResults from './components/home/SearchResults';
 import Account from './components/account/Account';
 import Sidebar from './components/account/Sidebar';
 import Profilo from './components/account/Profilo';
