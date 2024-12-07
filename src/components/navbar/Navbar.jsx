@@ -11,10 +11,10 @@ const Navbar = () => {
   const { filter, setFilter } = useFilter(); 
   const navigate = useNavigate();
 
-  const authSrv = new AuthService(); 
+   
 
   const logout = () => {
-    authSrv.logout();
+    AuthService.logout();
     navigate('/');
   };
 
@@ -61,40 +61,40 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <a
+              <div
                 className={`nav-link ${filter === 'all' ? 'active' : ''}`}
-                href="/home"
+                
                 onClick={() => handleFilterChange('all')}
               >
                 Home
-              </a>
+              </div>
             </li>
             <li className="nav-item">
-              <a
+              <div
                 className={`nav-link ${filter === 'tvshows' ? 'active' : ''}`}
-                href="/home"
+                
                 onClick={() => handleFilterChange('tvshows')}
               >
                 Serie TV
-              </a>
+              </div>
             </li>
             <li className="nav-item">
-              <a
+              <div
                 className={`nav-link ${filter === 'movies' ? 'active' : ''}`}
-                href="/home"
+                
                 onClick={() => handleFilterChange('movies')}
               >
                 Film
-              </a>
+              </div>
             </li>
             <li className="nav-item">
-              <a
+              <div
                 className={`nav-link ${filter === 'new' ? 'active' : ''}`}
-                href="/home"
+                
                 onClick={() => handleFilterChange('new')}
               >
                 Nuovi e Popolari
-              </a>
+              </div>
             </li>
           </ul>
 
@@ -117,7 +117,7 @@ const Navbar = () => {
 
             {/* Profilo utente */}
             <div className="dropdown">
-              <a
+              <div
                 className="nav-link dropdown-toggle"
                 href="#"
                 id="navbarDropdown"
@@ -130,7 +130,7 @@ const Navbar = () => {
                   alt="avatar"
                   style={{ height: '30px' }}
                 />
-              </a>
+              </div>
               <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a className="dropdown-item" href="/sidebar/profilo">Profilo</a></li>
                 <li><a className="dropdown-item" href="/sidebar">Account</a></li>
