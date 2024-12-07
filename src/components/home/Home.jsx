@@ -130,7 +130,7 @@ const Home = () => {
           <div key={category.name}>
             <h2 className="category-title mb-1 mt-3">{category.name}</h2>
             <Carousel indicators={false} interval={null}>
-              {chunkArray(category.movies, 6).map((moviesChunk, idx) => (
+              {chunkArray(category.movies, 5).map((moviesChunk, idx) => (
                 <Carousel.Item key={idx}>
                   <div className="d-flex justify-content-start">
                     {moviesChunk.map((movie) => (
