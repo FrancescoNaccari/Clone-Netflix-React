@@ -1,10 +1,13 @@
 /* Navbar.css */
 
 .navbar {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 1
+    12px;
+    font-weight: 400;
   }
-  
+  i{
+    font-size: 12px;
+  }
   .nav-link {
     color: #e5e5e5 !important;
     transition: color 0.3s ease;
@@ -15,13 +18,13 @@
   }
   
   .navbar-brand img {
-    max-height: 100px;
+    max-height: 90x;
   }
-  
+ 
   .dropdown-menu {
     background-color: #141414;
     border: none;
-    font-size: 14px;
+    font-size: 12px;
   }
   
   .dropdown-item {
@@ -37,4 +40,6 @@
     font-weight: bold;
     border-bottom: 2px solid #fff;
   }
-  
+  .form-control {
+    font-size: 12px !important;
+  }

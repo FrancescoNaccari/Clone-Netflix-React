@@ -37,11 +37,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-0">
       <div className="container-fluid">
         {/* Logo */}
         <a className="navbar-brand" href="/" onClick={(e) => navigate('/')}>
-          <img src={logo} alt="Netflix" style={{ height: '50px' }} />
+          <img src={logo} alt="Netflix" style={{ height: '25px' }} />
         </a>
 
         {/* Menu Toggler per dispositivi mobili */}
@@ -99,15 +99,15 @@ const Navbar = () => {
           </ul>
 
           {/* Icone a destra */}
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center ">
             {/* Cerca */}
             <div className="search-container d-flex">
-              <button className="btn btn-outline-light" onClick={searchMovies}>
-                <i className="bi bi-search"></i>
+              <button className="btn btn-outline-light p-0 px-2"    onClick={searchMovies}>
+                <i className="bi bi-search "></i>
               </button>
               <input
                 type="text"
-                className="form-control mx-2"
+                className="form-control mx-2 p-1"
                 placeholder="Cerca film o serie TV"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -124,11 +124,12 @@ const Navbar = () => {
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                
               >
                 <img
                   src={avatar}
                   alt="avatar"
-                  style={{ height: '30px' }}
+                  style={{ height: '25px' }}
                 />
               </div>
               <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
