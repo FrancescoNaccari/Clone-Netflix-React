@@ -17,6 +17,7 @@ import Impostazioni from './components/account/Impostazioni';
 import Sicurezza from './components/account/Sicurezza';
 import Navbar from './components/navbar/Navbar';
 import { FilterProvider } from './context/FilterContext';
+import Footer from './components/footer/Footer';
 
 const App = () => {
   return (
@@ -50,6 +51,7 @@ const App = () => {
           {/* Fallback Route */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
+        <Footer/>
       </FilterProvider>
     </Router>
   );
