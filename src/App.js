@@ -22,38 +22,36 @@ import Footer from './components/footer/Footer';
 const App = () => {
   return (
     <Router>
-      <FilterProvider>
-        {/* Navbar visible on all pages */}
-        <Navbar />
-        <Routes>
-          {/* Main Routes */}
-          <Route path="/" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/search" element={<SearchResults />} />
+    <FilterProvider>
+      <Navbar />
+      <Routes>
+        {/* Main Routes */}
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/search" element={<SearchResults />} />
 
-          {/* Routes with Sidebar */}
-          <Route path="/sidebar/*" element={<Sidebar />}>
-            {/* Child Routes under Sidebar */}
-            <Route path="account" element={<Account />} />
-            <Route path="sicurezza" element={<Sicurezza />} />
-            <Route path="abbonamento" element={<Abbonamento />} />
-            <Route path="profilo" element={<Profilo />} />
-            <Route path="modificaPiano" element={<ModificaPiano />} />
-            <Route path="utenteExtra" element={<UtenteExtra />} />
-            <Route path="aggiornaPassword" element={<AggiornaPassword />} />
-            <Route path="gestisciDispositivi" element={<GestisciDispositivi />} />
-            <Route path="gestisciPagamenti" element={<GestisciPagamento />} />
-            <Route path="impostazioni" element={<Impostazioni />} />
-            {/* Default child route */}
-            <Route path="" element={<Navigate to="account" />} />
-          </Route>
+        {/* Routes with Sidebar */}
+        <Route path="/sidebar/*" element={<Sidebar />}>
+          <Route path="account" element={<Account />} />
+          <Route path="sicurezza" element={<Sicurezza />} />
+          <Route path="abbonamento" element={<Abbonamento />} />
+          <Route path="profilo" element={<Profilo />} />
+          <Route path="modificaPiano" element={<ModificaPiano />} />
+          <Route path="utenteExtra" element={<UtenteExtra />} />
+          <Route path="aggiornaPassword" element={<AggiornaPassword />} />
+          <Route path="gestisciDispositivi" element={<GestisciDispositivi />} />
+          <Route path="gestisciPagamenti" element={<GestisciPagamento />} />
+          <Route path="impostazioni" element={<Impostazioni />} />
+          {/* Default child route */}
+          <Route index element={<Navigate to="account" />} />
+        </Route>
 
-          {/* Fallback Route */}
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-        <Footer/>
-      </FilterProvider>
-    </Router>
+        {/* Fallback Route */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+      <Footer />
+    </FilterProvider>
+  </Router>
   );
 };
 
