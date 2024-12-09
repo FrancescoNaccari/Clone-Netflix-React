@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 
-const API_BASE_URL = process.env.REACT_APP_API_BACK;
+const API_BASE_URL = '';
 
 class AuthService {
   static async register(data) {
